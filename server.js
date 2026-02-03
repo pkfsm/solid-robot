@@ -20,7 +20,11 @@ mongoose.connect(process.env.MONGO_URI)
 app.use("/api", apiRoutes);
 app.use("/api/nimda", nimdaRoutes);
 
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static("dist"));
+
+app.get("*", (_, res) => {
+  res.sendFile(process.cwd() + "/dist/index.html");
+});
 
 app.get("*", (_, res) => {
   res.sendFile(path.join(__dirname, "dist/index.html"));
