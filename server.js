@@ -26,8 +26,8 @@ app.get("*", (_, res) => {
   res.sendFile(process.cwd() + "/dist/index.html");
 });
 
-app.get("*", (_, res) => {
-  res.sendFile(path.join(__dirname, "dist/index.html"));
-});
+// app.get("*", (_, res) => {
+//   res.sendFile(path.join(__dirname, "dist/index.html"));
+// });
 
 app.listen(process.env.PORT || 3000);
